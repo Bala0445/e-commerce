@@ -3,6 +3,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
+import dotenv from "dotenv"
 
 connectDB();
 
@@ -12,5 +13,7 @@ app.use(express.json());
 
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(5000, () => console.log("Server running on port 5000"));
